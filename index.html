@@ -99,7 +99,7 @@
                 while (ulBn.firstChild) ulBn.removeChild(ulBn.firstChild);
                 console.log("existing BN div cleared");
 
-                const result = await fetch("http://localhost:8000/bn", {
+                const result = await fetch("http://localhost:8000/api/bn", {
                     method: "POST",
                     headers: {
                         Accept: "application/json",
@@ -148,7 +148,7 @@
                 while (ulIn.firstChild) ulIn.removeChild(ulIn.firstChild);
                 console.log("existing IN div cleared");
 
-                const result = await fetch("http://localhost:8000/in", {
+                const result = await fetch("http://localhost:8000/api/in", {
                     method: "POST",
                     headers: {
                         Accept: "application/json",
@@ -191,7 +191,7 @@
                 while (ulMin.firstChild) ulMin.removeChild(ulMin.firstChild);
                 console.log("existing MIN div cleared");
 
-                const result = await fetch("http://localhost:8000/min", {
+                const result = await fetch("http://localhost:8000/api/min", {
                     method: "POST",
                     headers: {
                         Accept: "application/json",
@@ -234,7 +234,7 @@
                 while (ulBpck.firstChild) ulBpck.removeChild(ulBpck.firstChild);
                 console.log("existing BPCK div cleared");
 
-                const result = await fetch("http://localhost:8000/bpck", {
+                const result = await fetch("http://localhost:8000/api/bpck", {
                     method: "POST",
                     headers: {
                         Accept: "application/json",
@@ -280,7 +280,7 @@
                 while (ulGpck.firstChild) ulGpck.removeChild(ulGpck.firstChild);
                 console.log("existing GPCK div cleared");
 
-                const result = await fetch("http://localhost:8000/gpck", {
+                const result = await fetch("http://localhost:8000/api/gpck", {
                     method: "POST",
                     headers: {
                         Accept: "application/json",
@@ -323,7 +323,7 @@
                 while (ulSbd.firstChild) ulSbd.removeChild(ulSbd.firstChild);
                 console.log("existing SBD div cleared");
 
-                const result = await fetch("http://localhost:8000/sbd", {
+                const result = await fetch("http://localhost:8000/api/sbd", {
                     method: "POST",
                     headers: {
                         Accept: "application/json",
@@ -373,7 +373,7 @@
                 if (e.value.length >= 3) {
                     let search = e.value;
                     console.log("Fetch API");
-                    fetch("http://localhost:8000/" + search)
+                    fetch("http://localhost:8000/api/" + search)
                         .then((response) => {
                             return response.json();
                         })
@@ -426,7 +426,7 @@
                 const search = document.getElementById("search").value;
 
                 // fetch concept rxcuis?? from "/" endpoint
-                fetch("http://localhost:8000/" + search)
+                fetch("http://localhost:8000/api/" + search)
                     .then((response) => {
                         return response.json();
                     })
@@ -482,7 +482,7 @@
                     while (ulIn.firstChild) ulIn.removeChild(ulIn.firstChild);
                     console.log("existing page cleared");
 
-                    const result = await fetch("http://localhost:8000/in", {
+                    const result = await fetch("http://localhost:8000/api/in", {
                         method: "POST",
                         headers: {
                             Accept: "application/json",
@@ -530,7 +530,7 @@
                     while (ulBn.firstChild) ulBn.removeChild(ulBn.firstChild);
                     console.log("existing page cleared");
 
-                    const result = await fetch("http://localhost:8000/bn", {
+                    const result = await fetch("http://localhost:8000/api/bn", {
                         method: "POST",
                         headers: {
                             Accept: "application/json",
@@ -571,7 +571,7 @@
                         ulBpck.removeChild(ulBpck.firstChild);
                     console.log("existing BPCK div cleared");
 
-                    const result = await fetch("http://localhost:8000/bpck", {
+                    const result = await fetch("http://localhost:8000/api/bpck", {
                         method: "POST",
                         headers: {
                             Accept: "application/json",
@@ -598,7 +598,7 @@
                         ulGpck.removeChild(ulGpck.firstChild);
                     console.log("existing GPCK div cleared");
 
-                    const result = await fetch("http://localhost:8000/gpck", {
+                    const result = await fetch("http://localhost:8000/api/gpck", {
                         method: "POST",
                         headers: {
                             Accept: "application/json",
@@ -625,7 +625,7 @@
                         ulSbd.removeChild(ulSbd.firstChild);
                     console.log("existing SBD div cleared");
 
-                    const result = await fetch("http://localhost:8000/sbd", {
+                    const result = await fetch("http://localhost:8000/api/sbd", {
                         method: "POST",
                         headers: {
                             Accept: "application/json",
@@ -664,7 +664,7 @@
                         ulScd.removeChild(ulScd.firstChild);
                     console.log("existing SCD div cleared");
 
-                    const result = await fetch("http://localhost:8000/scd", {
+                    const result = await fetch("http://localhost:8000/api/scd", {
                         method: "POST",
                         headers: {
                             Accept: "application/json",
@@ -683,7 +683,7 @@
             const btnCreate = document.getElementById("button");
             btnCreate.addEventListener("click", (event) => {
                 // fill all_concepts table
-                fetch("http://localhost:8000/search")
+                fetch("http://localhost:8000/api/search")
                     .then((response) => {
                         return response.json();
                     })
@@ -695,7 +695,7 @@
                         formdata.append("bookData", bookData);
                         var myHeader = new Headers();
                         myHeader.append("Content-Type", "application/json");
-                        return fetch("http://localhost:8000/allProperties", {
+                        return fetch("http://localhost:8000/api/allProperties", {
                             method: "POST",
                             headers: myHeader,
                             body: JSON.stringify(reqBody),

@@ -51,15 +51,15 @@ async function connect() {
 
 // localhost:8000
 
-app.get("/home", (req, res) => res.sendFile(`${__dirname}/index.html`));
+app.get("/api/home", (req, res) => res.sendFile(`${__dirname}/index.html`));
 
-app.get("/", async (req, res) => {
+app.get("/api", async (req, res) => {
     const rows = await readAllMinConcepts();
     res.setHeader("content-type", "application/json");
     res.send(JSON.stringify(rows));
 });
 
-app.get("/:concept", async (req, res) => {
+app.get("/api/:concept", async (req, res) => {
     console.log("app.get /search_term");
     const concept = req.params.concept;
     console.log("req.params.concept: ", concept);
@@ -67,7 +67,7 @@ app.get("/:concept", async (req, res) => {
     res.send(JSON.stringify(rows));
 });
 
-app.post("/search", async (req, res) => {
+app.post("/api/search", async (req, res) => {
     const result = {};
     console.log(
         "req.body data received: ",
@@ -78,7 +78,7 @@ app.post("/search", async (req, res) => {
     const searchData = req.body.searchData;
 });
 
-app.post("/bn", async (req, res) => {
+app.post("/api/bn", async (req, res) => {
     const result = {};
     console.log("RUNNING /BN");
     console.log("////////////\n\nreq.body data received: ", req.body);
@@ -115,7 +115,7 @@ app.post("/bn", async (req, res) => {
     }
 });
 
-app.post("/in", async (req, res) => {
+app.post("/api/in", async (req, res) => {
     const result = {};
     console.log("RUNNING /IN");
     console.log("////////////\n\nreq.body data received: ", req.body);
@@ -152,7 +152,7 @@ app.post("/in", async (req, res) => {
     }
 });
 
-app.post("/min", async (req, res) => {
+app.post("/api/min", async (req, res) => {
     const result = {};
     console.log("RUNNING /MIN");
     console.log("////////////\n\nreq.body data received: ", req.body);
@@ -189,7 +189,7 @@ app.post("/min", async (req, res) => {
     }
 });
 
-app.post("/bpck", async (req, res) => {
+app.post("/api/bpck", async (req, res) => {
     const result = {};
     console.log("RUNNING /BPCK");
     console.log("////////////\n\nreq.body data received: ", req.body);
@@ -230,13 +230,13 @@ app.post("/bpck", async (req, res) => {
     }
 });
 
-app.post("/gpck", async (req, res) => {
+app.post("/api/gpck", async (req, res) => {
     const result = {};
     console.log("RUNNING /GPCK");
     console.log("////////////\n\nreq.body data received: ", req.body);
 });
 
-app.post("/sbd", async (req, res) => {
+app.post("/api/sbd", async (req, res) => {
     const result = {};
     console.log("RUNNING /SBD");
     console.log("////////////\n\nreq.body data received: ", req.body);
@@ -262,13 +262,13 @@ app.post("/sbd", async (req, res) => {
     }
 });
 
-app.post("/scd", async (req, res) => {
+app.post("/api/scd", async (req, res) => {
     const result = {};
     console.log("RUNNING /SCD");
     console.log("////////////\n\nreq.body data received: ", req.body);
 });
 
-app.post("/allProperties", async (req, res) => {
+app.post("/api/allProperties", async (req, res) => {
     const result = {};
     console.log("req.body data received: ", req.body);
     console.log("^^^ What you posted to /allProperties");
@@ -310,7 +310,7 @@ app.post("/allProperties", async (req, res) => {
 //     }
 // });
 
-app.post("/termTypes", (req, res) => {
+app.post("/api/termTypes", (req, res) => {
     const result = {};
     console.log("req.body data received: ", req.body);
     console.log("^ WHAT you sent to /termTypes in the req.body}");
